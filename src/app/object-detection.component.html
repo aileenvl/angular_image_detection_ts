@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object Detection</title>
+ 
+  </head>
+  <body>
+    <div>
+      <input type="file" accept="image/*" (change)="detectObjects($event)">
+    </div>
+    
+    <div *ngIf="isLoading">
+      <div class="spinner"></div>
+    </div>
+    
+    <canvas #canvas></canvas>
+    <div *ngFor="let prediction of predictions">
+      {{ prediction.class }} - {{ prediction.score * 100 }}
+    </div>
+    
+  </body>
+</html>
